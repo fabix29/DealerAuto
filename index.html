@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DealerAuto - mockup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>DealerAuto</h1>
+    <p>Keep track of your dealership's car stock.</p>
+    <p class="app-count">3 cars, 2 of them available</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Add car</h2>
+      <form class="item-form">
+        <label>Car name
+          <input type="text" name="title" placeholder="Ex: Dacia Logan 2020" />
+        </label>
+        <label>Fuel
+          <select name="fuel">
+            <option value="gas">Gas</option>
+            <option value="diesel">Diesel</option>
+            <option value="electric">Electric</option>
+          </select>
+        </label>
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Cars in stock</h2>
+      <!-- When the list is empty: <p class="empty">There are no cars in stock.</p> -->
+      <ul class="item-list">
+        <li class="item-card">
+          <div>
+            <h3>Dacia Duster 2021</h3>
+            <span class="badge badge-diesel">Diesel</span>
+          </div>
+          <span class="status">Available</span>
+        </li>
+        <li class="item-card done">
+          <div>
+            <h3>Volkswagen Golf 2019</h3>
+            <span class="badge badge-gas">Gas</span>
+          </div>
+          <span class="status">Sold</span>
+        </li>
+        <li class="item-card">
+          <div>
+            <h3>Tesla Model 3 2022</h3>
+            <span class="badge badge-electric">Electric</span>
+          </div>
+          <span class="status">Available</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">Web Technologies project</footer>
+</body>
+</html>
