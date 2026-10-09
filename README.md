@@ -17,6 +17,7 @@ Sample data used across all stages:
 3. Tesla Model 3 2022, available, Electric (Sedan)
 ## How to run
 Open `index.html` in a browser. No build step, no server.
+
 ## AI usage
 | Tool | Used for |
 | -------------- | ----------------------------------------- |
@@ -26,8 +27,8 @@ Details per stage: see the ai-log/ folder.
 
 ## Status
 - [x] Stage 1: static mockup
-
-☐ Stage 2: data logic in JavaScript
+- [x] Stage 2: data logic in JavaScript
+- [ ] Stage 3: Vite and React project
 
 ## Verification table
 
@@ -41,3 +42,21 @@ Details per stage: see the ai-log/ folder.
 | S1-R6 | 2 columns on desktop, 1 under 700px                   | [style.css#L85-L93](https://github.com/fabix29/DealerAuto/blob/15ae86093a2db49c735ef6f04d4f59ddef034636/style.css#L85-L93), [#L224-L226](https://github.com/fabix29/DealerAuto/blob/15ae86093a2db49c735ef6f04d4f59ddef034636/style.css#L224-L226) (@media) | resize < 700px |
 | S1-R7 | visible focus, readable dark theme                    | [style.css#L24-L38](https://github.com/fabix29/DealerAuto/blob/15ae86093a2db49c735ef6f04d4f59ddef034636/style.css#L24-L38), [#L218-L221](https://github.com/fabix29/DealerAuto/blob/15ae86093a2db49c735ef6f04d4f59ddef034636/style.css#L218-L221) | Tab; dark mode |
 | S1-R8 | commit "Stage 1" pushed                               | link to the commit: https://github.com/fabix29/DealerAuto/commits/main/<commit>                                             | commit history        |
+
+## Stage 2: data logic
+Plain JavaScript, no DOM. `delaer.js` holds the array and the functions
+that read and change it. Results are printed in the browser console (F12).
+
+## AI usage
+| Tool | Used for |
+| -------------- | ----------------------------------------- |
+| Claude | Drafting the HTML/CSS (stage 1) and the JavaScript functions (stage 2). |
+
+Details per stage: see the ai-log/ folder.
+
+# Status
+- [x] Stage 1: static mockup
+- [x] Stage 2: data logic in JavaScript
+- [ ] Stage 3: Vite and React project
+
+
