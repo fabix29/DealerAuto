@@ -59,4 +59,14 @@ Details per stage: see the ai-log/ folder.
 - [x] Stage 2: data logic in JavaScript
 - [ ] Stage 3: Vite and React project
 
-
+## Verification table: Stage 2
+ 
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S2-R1 | JS file linked, logs on page load | [index.html#L64](https://github.com/fabix29/DealerAuto/blob/84d1fb4611fb984187fbe3502325a880e5642271/index.html#L64) (script) | open page, F12 |
+| S2-R2 | 3+ items with id, name, state, tag | [delaer.js#L5-L12](https://github.com/fabix29/DealerAuto/blob/84d1fb4611fb984187fbe3502325a880e5642271/dealer.js#L5-L12) | read |
+| S2-R3 | list, count, search, add, toggle, delete | [dealer.js#L15-L58](https://github.com/fabix29/DealerAuto/blob/84d1fb4611fb984187fbe3502325a880e5642271/dealer.js#L15-L58) (functions), [dealer.js#L61-L76](https://github.com/fabix29/DealerAuto/blob/84d1fb4611fb984187fbe3502325a880e5642271/dealer.js#L61-L76) (tests) | console output |
+| S2-R4 | add rejects empty name and invalid tag | [dealer.js#L34-L46](https://github.com/fabix29/DealerAuto/blob/84d1fb4611fb984187fbe3502325a880e5642271/dealer.js#L34-L46) (checks) | last 2 console lines |
+| S2-R5 | original array unchanged after add | [dealer.js#L69](https://github.com/fabix29/DealerAuto/blob/84d1fb4611fb984187fbe3502325a880e5642271/dealer.js#L69) | console line |
+| S2-R6 | README Stage 2 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-02.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-02.md) | read |
+| S2-R7 | commit "Stage 2" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
