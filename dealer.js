@@ -74,3 +74,4 @@ console.log("After deleting id 3:", listTitles(list).join(", "));
 console.log("--- Validation ---");
 addCar(list, "   ");
 addCar(list, "Test car", "hybrid");
+
