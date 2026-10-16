@@ -95,3 +95,15 @@ Details per stage: see the ai-log/ folder.
 - [x] Stage 3: Vite and React project
 - [ ] Stage 4: components built from data
 
+## Verification table: Stage 3
+
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S3-R1 | npm run dev starts without errors | [frontend/package.json](https://github.com/fabix29/DealerAuto/blob/main/frontend/package.json) | npm install, npm run dev |
+| S3-R2 | app name and counter computed from data | [frontend/src/App.jsx#L8-L18](https://github.com/fabix29/DealerAuto/blob/0a11ed539a5bc4ebc0584e96fc5facd8f24ae6c8/frontend/src/App.jsx#L8-L18) | edit data, save |
+| S3-R3 | data from README, not from the example | [frontend/src/App.jsx#L1-L5](https://github.com/fabix29/DealerAuto/blob/0a11ed539a5bc4ebc0584e96fc5facd8f24ae6c8/frontend/src/App.jsx#L1-L5) | compare with README |
+| S3-R4 | stage 1 styles reused | [frontend/src/App.css](https://github.com/fabix29/DealerAuto/blob/main/frontend/src/App.css) | look at the page |
+| S3-R5 | node_modules ignored, build passes | [frontend/.gitignore](https://github.com/fabix29/DealerAuto/blob/main/frontend/.gitignore) | npm run build |
+| S3-R6 | README Stage 3 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-03.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-03.md) | read |
+| S3-R7 | commit "Stage 3" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
+
