@@ -70,3 +70,28 @@ Details per stage: see the ai-log/ folder.
 | S2-R5 | original array unchanged after add | [dealer.js#L69](https://github.com/fabix29/DealerAuto/blob/84d1fb4611fb984187fbe3502325a880e5642271/dealer.js#L69) | console line |
 | S2-R6 | README Stage 2 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-02.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-02.md) | read |
 | S2-R7 | commit "Stage 2" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
+
+## Stage 3: Vite and React project
+The app now lives in `frontend/`, built with Vite. The data from stage 2
+moved into the main component; the list is still printed raw.
+The static pages from stages 1 and 2 are kept in `mockup/`.
+## How to run
+```
+cd frontend
+npm install
+npm run dev
+```
+Then open the address printed in the terminal (http://localhost:5173).
+## AI usage
+| Tool | Used for |
+| -------------- | ----------------------------------------- |
+| Claude | Generate the checktable |
+ 
+Details per stage: see the ai-log/ folder.
+ 
+## Status
+- [x] Stage 1: static mockup
+- [x] Stage 2: data logic in JavaScript
+- [x] Stage 3: Vite and React project
+- [ ] Stage 4: components built from data
+
