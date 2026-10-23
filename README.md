@@ -132,6 +132,15 @@ Details per stage: see the ai-log/ folder.
 - [x] Stage 4: components rendered from data
 - [ ] Stage 5: local state and events
 
+## Verification table: Stage 4
 
-
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S4-R1 | 2+ components in src/components/ | [frontend/src/components/](https://github.com/fabix29/DealerAuto/tree/main/frontend/src/components) | open folder |
+| S4-R2 | card receives data through props | [CarCard.jsx#L4-L16](https://github.com/fabix29/DealerAuto/blob/107603ed2e807654666b9b11e2daa09d78130c79/frontend/src/components/CarCard.jsx#L4-L16) | read |
+| S4-R3 | map + key={id}, no console warnings | [CarList.jsx#L10-L12](https://github.com/fabix29/DealerAuto/blob/107603ed2e807654666b9b11e2daa09d78130c79/frontend/src/components/CarList.jsx#L10-L12) | F12, Console |
+| S4-R4 | message for empty list | [CarList.jsx#L4-L6](https://github.com/fabix29/DealerAuto/blob/107603ed2e807654666b9b11e2daa09d78130c79/frontend/src/components/CarList.jsx#L4-L6) | set array to [] |
+| S4-R5 | state changes the card look | [CarCard.jsx#L6](https://github.com/fabix29/DealerAuto/blob/107603ed2e807654666b9b11e2daa09d78130c79/frontend/src/components/CarCard.jsx#L6) | toggle a sold flag |
+| S4-R6 | README Stage 4 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-04.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-04.md) | read |
+| S4-R7 | commit "Stage 4" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
 
