@@ -1,3 +1,5 @@
+import CarList from "./components/CarList.jsx";
+
 const cars = [
   { id: 1, title: "Dacia Duster 2021", sold: false, fuel: "diesel" },
   { id: 2, title: "Volkswagen Golf 2019", sold: true, fuel: "gas" },
@@ -20,8 +22,7 @@ export default function App() {
       <main className="container">
         <section className="panel">
           <h2>Cars in stock</h2>
-          {/* Temporary: raw data; components come in Stage 4 */}
-          <pre>{JSON.stringify(cars, null, 2)}</pre>
+          <CarList cars={cars} />
         </section>
       </main>
     </>

@@ -107,3 +107,31 @@ Details per stage: see the ai-log/ folder.
 | S3-R6 | README Stage 3 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-03.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-03.md) | read |
 | S3-R7 | commit "Stage 3" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
 
+## Stage 4: components
+The list is rendered from the data, through two components:
+- `CarList` receives the whole array and renders one card per item
+- `CarCard` receives a single item through props and displays it
+## How to run
+```
+cd frontend
+npm install
+npm run dev
+```
+Then open the address printed in the terminal (http://localhost:5173).
+## AI usage
+| Tool | Used for |
+| -------------- | ----------------------------------------- |
+| Claude | Generating initial README structure; drafting the HTML/CSS (stage 1), the JavaScript functions (stage 2) and the React files (stages 3 and 4). |
+ 
+Details per stage: see the ai-log/ folder.
+ 
+## Status
+- [x] Stage 1: static mockup
+- [x] Stage 2: data logic in JavaScript
+- [x] Stage 3: Vite and React project
+- [x] Stage 4: components rendered from data
+- [ ] Stage 5: local state and events
+
+
+
+
