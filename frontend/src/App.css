@@ -13,6 +13,8 @@
   --header-text: #ffffff;
   --border: #d5d9df;
   --ok: #1a7f4b;            /* "available" dot */
+  --danger: #b42318;        /* delete button */
+  --on-danger: #ffffff;
   --badge-text: #ffffff;
   /* one color per tag value */
   --gas: #a15c07;
@@ -20,9 +22,9 @@
   --electric: #0b7a5c;
 }
 
-/* Dark theme: only the variable values change */
+/* System theme, unless the user explicitly chose the light theme */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0d1015;
     --card: #171c24;
     --text: #e6e8ec;
@@ -34,7 +36,26 @@
     --header-bg: #06080b;
     --border: #2a323e;
     --ok: #4ade80;
+    --danger: #ff6b6b;
+    --on-danger: #1a0509;
   }
+}
+
+/* Stage 5: the theme chosen with the button has priority over the system theme */
+:root[data-theme="dark"] {
+  --bg: #0d1015;
+  --card: #171c24;
+  --text: #e6e8ec;
+  --muted: #9aa3b0;
+  --accent: #ff5468;
+  --accent-dark: #ff8090;
+  --accent-soft: #2b1820;
+  --on-accent: #1a0509;
+  --header-bg: #06080b;
+  --border: #2a323e;
+  --ok: #4ade80;
+  --danger: #ff6b6b;
+  --on-danger: #1a0509;
 }
 
 body {
@@ -207,12 +228,71 @@ button:hover { background: var(--accent-dark); }
 .item-card.done .status { color: var(--muted); }
 .item-card.done .status::before { background: var(--muted); }
 
+/* Empty list message */
+.empty {
+  margin: 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
 /* Footer */
 .app-footer {
   text-align: center;
   padding: 24px 16px;
   color: var(--muted);
   font-size: .875rem;
+}
+
+/* Stage 5: checkbox and delete button in the card */
+.item-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+.item-main input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.item-side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-danger {
+  border: 1px solid var(--danger);
+  background: transparent;
+  color: var(--danger);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+.btn-danger:hover {
+  background: var(--danger);
+  color: var(--on-danger);
+}
+
+/* Stage 5: theme toggle button, in the corner of the header */
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  padding: 6px 12px;
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--header-text);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
 }
 
 /* Visible focus when navigating with Tab */
@@ -224,4 +304,6 @@ button:hover { background: var(--accent-dark); }
 /* Narrow screens (last, so it overrides .container) */
 @media (max-width: 700px) {
   .container { grid-template-columns: 1fr; }
+  .theme-toggle { position: static; margin-bottom: 12px; }
+  .item-card { flex-wrap: wrap; }
 }

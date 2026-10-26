@@ -1,6 +1,7 @@
 import CarCard from "./CarCard.jsx";
 
-export default function CarList({ cars }) {
+// Receives the list and the functions and passes them to every card.
+export default function CarList({ cars, onToggleSold, onDelete }) {
   if (cars.length === 0) {
     return <p className="empty">There are no cars in stock.</p>;
   }
@@ -8,7 +9,12 @@ export default function CarList({ cars }) {
   return (
     <ul className="item-list">
       {cars.map((car) => (
-        <CarCard key={car.id} car={car} />
+        <CarCard
+          key={car.id}
+          car={car}
+          onToggleSold={onToggleSold}
+          onDelete={onDelete}
+        />
       ))}
     </ul>
   );
