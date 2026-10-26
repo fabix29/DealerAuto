@@ -170,3 +170,16 @@ Details per stage: see the ai-log/ folder.
 - [x] Stage 4: components rendered from data
 - [x] Stage 5: local state and events
 - [ ] Stage 6: loading data from a mock API
+
+## Verification table: Stage 5
+
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S5-R1 | list kept in useState, in App | [App.jsx#L19](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.jsx#L19) | read |
+| S5-R2 | toggling changes state and card look | [App.jsx#L22-L27](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.jsx#L22-L27), [CarCard.jsx#L6-L11](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/components/CarCard.jsx#L6-L11) | click a checkbox |
+| S5-R3 | delete removes the item | [App.jsx#L29-L31](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.jsx#L29-L31), [CarCard.jsx#L22-L28](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/components/CarCard.jsx#L22-L28) | click Delete |
+| S5-R4 | header counter derived, not in state | [App.jsx#L40-L41](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.jsx#L40-L41) | toggle, watch header |
+| S5-R5 | immutable updates (no push, splice, assignment) | [App.jsx#L22-L31](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.jsx#L22-L31) | read |
+| S5-R6 | light / dark toggle: state + data-theme on html | [App.jsx#L33-L39](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.jsx#L33-L39), [App.jsx#L46-L52](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.jsx#L46-L52), [App.css#L25-L59](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.css#L25-L59), [App.css#L278-L296](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.css#L278-L296) | click the button, both system themes |
+| S5-R7 | no console warnings; README + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-05.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-05.md) | F12, Console |
+| S5-R8 | commit "Stage 5" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
