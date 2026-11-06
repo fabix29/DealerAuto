@@ -1,0 +1,9 @@
+{
+  "cars": [
+    { "id": 1, "title": "Dacia Duster 2021", "sold": false, "fuel": "diesel" },
+    { "id": 2, "title": "Volkswagen Golf 2019", "sold": true, "fuel": "gas" },
+    { "id": 3, "title": "Tesla Model 3 2022", "sold": false, "fuel": "electric" },
+    { "id": 4, "title": "Skoda Octavia 2020", "sold": false, "fuel": "diesel" },
+    { "id": 5, "title": "Renault Clio 2018", "sold": true, "fuel": "gas" }
+  ]
+}

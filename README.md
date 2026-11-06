@@ -183,3 +183,30 @@ Details per stage: see the ai-log/ folder.
 | S5-R6 | light / dark toggle: state + data-theme on html | [App.jsx#L33-L39](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.jsx#L33-L39), [App.jsx#L46-L52](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.jsx#L46-L52), [App.css#L25-L59](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.css#L25-L59), [App.css#L278-L296](https://github.com/fabix29/DealerAuto/blob/1a48e66ea8df5f0a70997f1782897755f205b33f/frontend/src/App.css#L278-L296) | click the button, both system themes |
 | S5-R7 | no console warnings; README + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-05.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-05.md) | F12, Console |
 | S5-R8 | commit "Stage 5" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
+
+## Stage 6: data from a mock API
+The list is served by json-server from `frontend/db.json` (five cars). The app fetches it on load
+and shows a loading state and an error state. Checking and deleting are still local for now.
+## How to run
+Two terminals, both in `frontend/`:
+```
+npm install
+npm run api   # terminal 1, http://localhost:3001
+npm run dev   # terminal 2, http://localhost:5173
+```
+Then open the address printed in the terminal (http://localhost:5173).
+## AI usage
+| Tool | Used for |
+| -------------- | ----------------------------------------- |
+| Claude | Generating initial README structure; drafting the HTML/CSS (stage 1), the JavaScript functions (stage 2) and the React files (stages 3 to 6). |
+ 
+Details per stage: see the ai-log/ folder.
+ 
+## Status
+- [x] Stage 1: static mockup
+- [x] Stage 2: data logic in JavaScript
+- [x] Stage 3: Vite and React project
+- [x] Stage 4: components rendered from data
+- [x] Stage 5: local state and events
+- [x] Stage 6: data from a mock API
+- [ ] Stage 7: form and validationnpm run api

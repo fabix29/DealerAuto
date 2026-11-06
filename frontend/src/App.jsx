@@ -1,12 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CarList from "./components/CarList.jsx";
-
-// The data of the theme, same as in the README (only the starting value)
-const INITIAL_CARS = [
-  { id: 1, title: "Dacia Duster 2021", sold: false, fuel: "diesel" },
-  { id: 2, title: "Volkswagen Golf 2019", sold: true, fuel: "gas" },
-  { id: 3, title: "Tesla Model 3 2022", sold: false, fuel: "electric" },
-];
+import { fetchCars } from "./api.js";
 
 // Starting theme: the one of the operating system
 function getInitialTheme() {
@@ -16,10 +10,33 @@ function getInitialTheme() {
 }
 
 export default function App() {
-  const [cars, setCars] = useState(INITIAL_CARS);
+  const [cars, setCars] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [theme, setTheme] = useState(getInitialTheme);
 
-  // Immutable update: new list, new object for the changed car
+  // Runs once, after the first render
+  useEffect(() => {
+    let ignore = false; // do not set state if the page was closed meanwhile
+
+    async function load() {
+      try {
+        const data = await fetchCars();
+        if (!ignore) setCars(data);
+      } catch (err) {
+        if (!ignore) setError(err.message);
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      ignore = true;
+    };
+  }, []);
+
+  // In stage 6 the changes stay local: they are lost on refresh (fixed in stage 7)
   function handleToggleSold(id) {
     setCars((prev) =>
       prev.map((c) => (c.id === id ? { ...c, sold: !c.sold } : c))
@@ -60,11 +77,20 @@ export default function App() {
       <main className="container">
         <section className="panel">
           <h2>Cars in stock</h2>
-          <CarList
-            cars={cars}
-            onToggleSold={handleToggleSold}
-            onDelete={handleDelete}
-          />
+          {loading && <p className="info">Loading cars...</p>}
+          {error && (
+            <p className="error">
+              Could not load the data: {error}. Is <code>npm run api</code>{" "}
+              running?
+            </p>
+          )}
+          {!loading && !error && (
+            <CarList
+              cars={cars}
+              onToggleSold={handleToggleSold}
+              onDelete={handleDelete}
+            />
+          )}
         </section>
       </main>
     </>

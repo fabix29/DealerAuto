@@ -15,6 +15,8 @@
   --ok: #1a7f4b;            /* "available" dot */
   --danger: #b42318;        /* delete button */
   --on-danger: #ffffff;
+  --error-bg: #fdecef;
+  --error-border: #f4b8c1;
   --badge-text: #ffffff;
   /* one color per tag value */
   --gas: #a15c07;
@@ -38,6 +40,8 @@
     --ok: #4ade80;
     --danger: #ff6b6b;
     --on-danger: #1a0509;
+    --error-bg: #3a1a22;
+    --error-border: #6b2a38;
   }
 }
 
@@ -56,6 +60,8 @@
   --ok: #4ade80;
   --danger: #ff6b6b;
   --on-danger: #1a0509;
+  --error-bg: #3a1a22;
+  --error-border: #6b2a38;
 }
 
 body {
@@ -293,6 +299,18 @@ button:hover { background: var(--accent-dark); }
   background: var(--accent);
   border-color: var(--accent);
   color: var(--on-accent);
+}
+
+/* Stage 6: loading and error states */
+.info { color: var(--muted); }
+
+.error {
+  margin: 0;
+  color: var(--danger);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  padding: 10px 12px;
 }
 
 /* Visible focus when navigating with Tab */
