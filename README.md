@@ -210,3 +210,15 @@ Details per stage: see the ai-log/ folder.
 - [x] Stage 5: local state and events
 - [x] Stage 6: data from a mock API
 - [ ] Stage 7: form and validationnpm run api
+
+## Verification table: Stage 6
+
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S6-R1 | npm run api starts, route shows JSON | [frontend/package.json](https://github.com/fabix29/DealerAuto/blob/2bde757037119999b197210b8196b7bf01050782/frontend/package.json#L11) (the `api` script), [frontend/db.json](https://github.com/fabix29/DealerAuto/blob/main/frontend/db.json) | open localhost:3001/cars |
+| S6-R2 | data no longer in React code | [App.jsx#L13](https://github.com/fabix29/DealerAuto/blob/2bde757037119999b197210b8196b7bf01050782/frontend/src/App.jsx#L13) (useState([])) | read |
+| S6-R3 | loading message while waiting | [App.jsx#L80](https://github.com/fabix29/DealerAuto/blob/2bde757037119999b197210b8196b7bf01050782/frontend/src/App.jsx#L80) | --delay 4000 |
+| S6-R4 | error message when API is down | [App.jsx#L81-L86](https://github.com/fabix29/DealerAuto/blob/2bde757037119999b197210b8196b7bf01050782/frontend/src/App.jsx#L81-L86) | stop npm run api, refresh |
+| S6-R5 | fetch only in api.js, URL from env | [api.js#L2-L10](https://github.com/fabix29/DealerAuto/blob/2bde757037119999b197210b8196b7bf01050782/frontend/src/api.js#L2-L10), [.env.example](https://github.com/fabix29/DealerAuto/blob/main/frontend/.env.example) | search for fetch |
+| S6-R6 | README Stage 6 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-06.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-06.md) | read |
+| S6-R7 | commit "Stage 6" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
