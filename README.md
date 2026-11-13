@@ -252,3 +252,15 @@ Details per stage: see the ai-log/ folder.
 - [x] Stage 7: form and validation
 - [ ] Stage 8: routing and detail page
 
+## Verification table: Stage 7
+
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S7-R1 | controlled form: value + onChange on every field | [CarForm.jsx#L55-L80](https://github.com/fabix29/DealerAuto/blob/a53efce90505b917f7f246ec6a7ec4d675f6094d/frontend/src/components/CarForm.jsx#L55-L80) | read |
+| S7-R2 | empty title shows an error, nothing is sent | [CarForm.jsx#L17-L33](https://github.com/fabix29/DealerAuto/blob/a53efce90505b917f7f246ec6a7ec4d675f6094d/frontend/src/components/CarForm.jsx#L17-L33) (validate) | submit empty, watch Network |
+| S7-R3 | added item shows in the list and survives refresh | [App.jsx#L45-L48](https://github.com/fabix29/DealerAuto/blob/a53efce90505b917f7f246ec6a7ec4d675f6094d/frontend/src/App.jsx#L45-L48) (handleAdd), [api.js#L21-L23](https://github.com/fabix29/DealerAuto/blob/a53efce90505b917f7f246ec6a7ec4d675f6094d/frontend/src/api.js#L21-L23) | add, refresh |
+| S7-R4 | toggle and delete survive refresh | [App.jsx#L50-L69](https://github.com/fabix29/DealerAuto/blob/a53efce90505b917f7f246ec6a7ec4d675f6094d/frontend/src/App.jsx#L50-L69) | toggle/delete, refresh |
+| S7-R5 | button disabled while sending, form cleared only on success | [CarForm.jsx#L26-L46](https://github.com/fabix29/DealerAuto/blob/a53efce90505b917f7f246ec6a7ec4d675f6094d/frontend/src/components/CarForm.jsx#L26-L46), [CarForm.jsx#L86](https://github.com/fabix29/DealerAuto/blob/a53efce90505b917f7f246ec6a7ec4d675f6094d/frontend/src/components/CarForm.jsx#L86) | --delay 3000; stop API and submit |
+| S7-R6 | tw.json and the data-testid attributes from table 7.3 | [tw.json](https://github.com/fabix29/DealerAuto/blob/main/tw.json), [CarCard.jsx#L6-L36](https://github.com/fabix29/DealerAuto/blob/a53efce90505b917f7f246ec6a7ec4d675f6094d/frontend/src/components/CarCard.jsx#L6-L36) | querySelectorAll in the console |
+| S7-R7 | README Stage 7 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-07.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-07.md) | read |
+| S7-R8 | commit "Stage 7" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
