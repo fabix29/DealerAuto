@@ -222,3 +222,33 @@ Details per stage: see the ai-log/ folder.
 | S6-R5 | fetch only in api.js, URL from env | [api.js#L2-L10](https://github.com/fabix29/DealerAuto/blob/2bde757037119999b197210b8196b7bf01050782/frontend/src/api.js#L2-L10), [.env.example](https://github.com/fabix29/DealerAuto/blob/main/frontend/.env.example) | search for fetch |
 | S6-R6 | README Stage 6 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-06.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-06.md) | read |
 | S6-R7 | commit "Stage 6" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
+
+## Stage 7: form and validation
+Cars can be added from the page. The form is controlled and validated,
+and every change (add, mark as sold, delete) goes to the API before it shows up
+in the list. The file `tw.json` and the `data-testid` attributes are used for the automatic check.
+## How to run
+Two terminals, both in `frontend/`:
+```
+npm install
+npm run api   # terminal 1, http://localhost:3001
+npm run dev   # terminal 2, http://localhost:5173
+```
+Then open the address printed in the terminal (http://localhost:5173).
+## AI usage
+| Tool | Used for |
+| -------------- | ----------------------------------------- |
+| Claude | Generating initial README structure; drafting the HTML/CSS (stage 1), the JavaScript functions (stage 2) and the React files (stages 3 to 7). |
+ 
+Details per stage: see the ai-log/ folder.
+ 
+## Status
+- [x] Stage 1: static mockup
+- [x] Stage 2: data logic in JavaScript
+- [x] Stage 3: Vite and React project
+- [x] Stage 4: components rendered from data
+- [x] Stage 5: local state and events
+- [x] Stage 6: data from a mock API
+- [x] Stage 7: form and validation
+- [ ] Stage 8: routing and detail page
+

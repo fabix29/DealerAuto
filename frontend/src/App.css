@@ -114,8 +114,8 @@ body {
   margin: 28px auto;
   padding: 0 16px;
   display: grid;
-  /* Stage 3: only the data panel; the second column returns in Stage 7 */
-  grid-template-columns: 1fr;
+  /* Stage 7: the form on the left, the list on the right */
+  grid-template-columns: 1fr 2fr;
   gap: 24px;
   align-items: start;
 }
@@ -311,6 +311,15 @@ button:hover { background: var(--accent-dark); }
   border: 1px solid var(--error-border);
   border-radius: 8px;
   padding: 10px 12px;
+}
+
+/* Stage 7: disabled button while sending, and the wrong field */
+.item-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.item-form input[aria-invalid="true"] {
+  border-color: var(--danger);
 }
 
 /* Visible focus when navigating with Tab */

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CarList from "./components/CarList.jsx";
-import { fetchCars } from "./api.js";
+import CarForm from "./components/CarForm.jsx";
+import { createCar, deleteCar, fetchCars, updateCar } from "./api.js";
 
 // Starting theme: the one of the operating system
 function getInitialTheme() {
@@ -24,7 +25,11 @@ export default function App() {
         const data = await fetchCars();
         if (!ignore) setCars(data);
       } catch (err) {
-        if (!ignore) setError(err.message);
+        if (!ignore) {
+          setError(
+            `Could not load the data: ${err.message}. Is npm run api running?`
+          );
+        }
       } finally {
         if (!ignore) setLoading(false);
       }
@@ -36,15 +41,31 @@ export default function App() {
     };
   }, []);
 
-  // In stage 6 the changes stay local: they are lost on refresh (fixed in stage 7)
-  function handleToggleSold(id) {
-    setCars((prev) =>
-      prev.map((c) => (c.id === id ? { ...c, sold: !c.sold } : c))
-    );
+  // First the server, then the state: only what was saved reaches the screen
+  async function handleAdd(car) {
+    const created = await createCar(car); // the server returns the car with its id
+    setCars((prev) => [...prev, created]);
   }
 
-  function handleDelete(id) {
-    setCars((prev) => prev.filter((c) => c.id !== id));
+  async function handleToggleSold(id) {
+    const car = cars.find((c) => c.id === id);
+    setError(null);
+    try {
+      const updated = await updateCar(id, { sold: !car.sold });
+      setCars((prev) => prev.map((c) => (c.id === id ? updated : c)));
+    } catch (err) {
+      setError(`Could not update the car: ${err.message}`);
+    }
+  }
+
+  async function handleDelete(id) {
+    setError(null);
+    try {
+      await deleteCar(id);
+      setCars((prev) => prev.filter((c) => c.id !== id));
+    } catch (err) {
+      setError(`Could not delete the car: ${err.message}`);
+    }
   }
 
   // Theme switch: state for the button, data-theme attribute for the CSS
@@ -76,15 +97,23 @@ export default function App() {
 
       <main className="container">
         <section className="panel">
+          <h2>Add car</h2>
+          <CarForm onAdd={handleAdd} />
+        </section>
+
+        <section className="panel">
           <h2>Cars in stock</h2>
-          {loading && <p className="info">Loading cars...</p>}
-          {error && (
-            <p className="error">
-              Could not load the data: {error}. Is <code>npm run api</code>{" "}
-              running?
+          {loading && (
+            <p className="info" data-testid="loading">
+              Loading cars...
             </p>
           )}
-          {!loading && !error && (
+          {error && (
+            <p className="error" data-testid="error">
+              {error}
+            </p>
+          )}
+          {!loading && (
             <CarList
               cars={cars}
               onToggleSold={handleToggleSold}

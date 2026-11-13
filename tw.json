@@ -1,0 +1,6 @@
+{
+  "resource": "cars",
+  "title": "title",
+  "done": "sold",
+  "sample": { "fuel": "diesel" }
+}
