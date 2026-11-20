@@ -1,4 +1,5 @@
 import CarCard from "./CarCard.jsx";
+import styles from "./CarList.module.css";
 
 // Receives the list and the functions and passes them to every card.
 export default function CarList({ cars, onToggleSold, onDelete }) {
@@ -11,7 +12,7 @@ export default function CarList({ cars, onToggleSold, onDelete }) {
   }
 
   return (
-    <ul className="item-list">
+    <ul className={styles.list}>
       {cars.map((car) => (
         <CarCard
           key={car.id}

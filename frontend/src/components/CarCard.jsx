@@ -1,29 +1,38 @@
-// A single car from the list, received through props.
-const FUEL_LABELS = { gas: "Gas", diesel: "Diesel", electric: "Electric" };
+import { Link } from "react-router-dom";
+import { FUEL_LABELS } from "../constants.js";
+import styles from "./CarCard.module.css";
 
+// A single car from the list, received through props.
 export default function CarCard({ car, onToggleSold, onDelete }) {
   return (
     <li
-      className={car.sold ? "item-card done" : "item-card"}
+      className={car.sold ? `${styles.card} ${styles.done}` : styles.card}
       data-testid="item"
       data-id={car.id}
     >
-      <label className="item-main">
+      <div className={styles.main}>
         <input
           type="checkbox"
           checked={car.sold}
           onChange={() => onToggleSold(car.id)}
+          aria-label={`Mark ${car.title} as sold`}
           data-testid="item-toggle"
         />
         <div>
-          <h3 data-testid="item-title">{car.title}</h3>
+          <Link
+            to={`/cars/${car.id}`}
+            className={styles.title}
+            data-testid="item-link"
+          >
+            {car.title}
+          </Link>
           <span className={`badge badge-${car.fuel}`}>
             {FUEL_LABELS[car.fuel]}
           </span>
         </div>
-      </label>
-      <div className="item-side">
-        <span className="status">{car.sold ? "Sold" : "Available"}</span>
+      </div>
+      <div className={styles.side}>
+        <span className={styles.status}>{car.sold ? "Sold" : "Available"}</span>
         <button
           className="btn-danger"
           onClick={() => onDelete(car.id)}

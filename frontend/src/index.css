@@ -1,0 +1,170 @@
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #eceef1;            /* page background, light asphalt */
+  --card: #ffffff;          /* panel background */
+  --text: #1b2027;
+  --muted: #5b6573;
+  --accent: #c8102e;        /* dealership red */
+  --accent-dark: #9d0c24;
+  --accent-soft: #fdecef;
+  --on-accent: #ffffff;     /* text on accent background */
+  --header-bg: #1b2027;     /* graphite */
+  --header-text: #ffffff;
+  --border: #d5d9df;
+  --ok: #1a7f4b;            /* "available" dot */
+  --danger: #b42318;        /* delete button */
+  --on-danger: #ffffff;
+  --error-bg: #fdecef;
+  --error-border: #f4b8c1;
+  --badge-text: #ffffff;
+  /* one color per tag value */
+  --gas: #a15c07;
+  --diesel: #475569;
+  --electric: #0b7a5c;
+}
+
+/* System theme, unless the user explicitly chose the light theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1015;
+    --card: #171c24;
+    --text: #e6e8ec;
+    --muted: #9aa3b0;
+    --accent: #ff5468;
+    --accent-dark: #ff8090;
+    --accent-soft: #2b1820;
+    --on-accent: #1a0509;
+    --header-bg: #06080b;
+    --border: #2a323e;
+    --ok: #4ade80;
+    --danger: #ff6b6b;
+    --on-danger: #1a0509;
+    --error-bg: #3a1a22;
+    --error-border: #6b2a38;
+  }
+}
+
+/* The theme chosen with the button has priority over the system theme */
+:root[data-theme="dark"] {
+  --bg: #0d1015;
+  --card: #171c24;
+  --text: #e6e8ec;
+  --muted: #9aa3b0;
+  --accent: #ff5468;
+  --accent-dark: #ff8090;
+  --accent-soft: #2b1820;
+  --on-accent: #1a0509;
+  --header-bg: #06080b;
+  --border: #2a323e;
+  --ok: #4ade80;
+  --danger: #ff6b6b;
+  --on-danger: #1a0509;
+  --error-bg: #3a1a22;
+  --error-border: #6b2a38;
+}
+
+/* Global styles: variables, base elements, shared classes.
+   Component styles live in the *.module.css files. */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* Visible focus when navigating with Tab */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.panel h2 {
+  margin: 0 0 18px;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.info {
+  color: var(--muted);
+}
+
+.empty {
+  margin: 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.error {
+  margin: 0;
+  color: var(--danger);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.btn {
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--on-accent);
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 14px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-danger {
+  border: 1px solid var(--danger);
+  background: transparent;
+  color: var(--danger);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background: var(--danger);
+  color: var(--on-danger);
+}
+
+/* Colored tags */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--badge-text);
+}
+
+.badge-gas { background: var(--gas); }
+.badge-diesel { background: var(--diesel); }
+.badge-electric { background: var(--electric); }

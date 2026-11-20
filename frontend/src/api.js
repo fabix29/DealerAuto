@@ -18,6 +18,10 @@ export function fetchCars() {
   return request("/cars");
 }
 
+export function fetchCar(id) {
+  return request(`/cars/${id}`);
+}
+
 export function createCar(car) {
   return request("/cars", { method: "POST", body: JSON.stringify(car) });
 }

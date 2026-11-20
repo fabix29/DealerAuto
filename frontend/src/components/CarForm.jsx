@@ -1,10 +1,7 @@
 import { useState } from "react";
+import { FUELS } from "../constants.js";
+import styles from "./CarForm.module.css";
 
-const FUELS = [
-  { value: "gas", label: "Gas" },
-  { value: "diesel", label: "Diesel" },
-  { value: "electric", label: "Electric" },
-];
 const TITLE_MAX = 100;
 
 // Controlled form: the React state is the source of truth for the fields
@@ -47,7 +44,7 @@ export default function CarForm({ onAdd }) {
 
   return (
     <form
-      className="item-form"
+      className={styles.form}
       onSubmit={handleSubmit}
       noValidate
       data-testid="form"
@@ -83,7 +80,12 @@ export default function CarForm({ onAdd }) {
           {error}
         </p>
       )}
-      <button type="submit" disabled={sending} data-testid="form-submit">
+      <button
+        type="submit"
+        className="btn"
+        disabled={sending}
+        data-testid="form-submit"
+      >
         {sending ? "Saving..." : "Add"}
       </button>
     </form>

@@ -1,0 +1,91 @@
+/* Header: graphite, with an accent stripe and a dashed road line */
+.header {
+  position: relative;
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-bottom: 5px solid var(--accent);
+}
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, var(--muted) 0 28px, transparent 28px 56px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 18px 16px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.logo {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tagline {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.link {
+  color: var(--header-text);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+.link:hover {
+  border-color: var(--muted);
+}
+.active {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.themeToggle {
+  padding: 6px 12px;
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--header-text);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.themeToggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.main {
+  max-width: 1000px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+.footer {
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}

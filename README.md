@@ -264,3 +264,34 @@ Details per stage: see the ai-log/ folder.
 | S7-R6 | tw.json and the data-testid attributes from table 7.3 | [tw.json](https://github.com/fabix29/DealerAuto/blob/main/tw.json), [CarCard.jsx#L6-L36](https://github.com/fabix29/DealerAuto/blob/a53efce90505b917f7f246ec6a7ec4d675f6094d/frontend/src/components/CarCard.jsx#L6-L36) | querySelectorAll in the console |
 | S7-R7 | README Stage 7 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-07.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-07.md) | read |
 | S7-R8 | commit "Stage 7" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
+
+## Stage 8: routing and detail page
+Three pages behind React Router: the list, a detail page at `/cars/:id`,
+and an about page, plus a 404 page. Component styles moved to CSS Modules.
+The detail page also shows the body type of the car.
+## How to run
+Two terminals, both in `frontend/`:
+```
+npm install
+npm run api   # terminal 1, http://localhost:3001
+npm run dev   # terminal 2, http://localhost:5173
+```
+Then open the address printed in the terminal (http://localhost:5173).
+## AI usage
+| Tool | Used for |
+| -------------- | ----------------------------------------- |
+| Claude | Generating initial README structure; drafting the HTML/CSS (stage 1), the JavaScript functions (stage 2) and the React files (stages 3 to 8). |
+ 
+Details per stage: see the ai-log/ folder.
+ 
+## Status
+- [x] Stage 1: static mockup
+- [x] Stage 2: data logic in JavaScript
+- [x] Stage 3: Vite and React project
+- [x] Stage 4: components rendered from data
+- [x] Stage 5: local state and events
+- [x] Stage 6: data from a mock API
+- [x] Stage 7: form and validation
+- [x] Stage 8: routing and detail page
+- [ ] Stage 9: own backend with Express
+
