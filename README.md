@@ -295,3 +295,15 @@ Details per stage: see the ai-log/ folder.
 - [x] Stage 8: routing and detail page
 - [ ] Stage 9: own backend with Express
 
+## Verification table: Stage 8
+
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S8-R1 | header navigation changes page without reload | [App.jsx#L11-L18](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/App.jsx#L11-L18), [Layout.jsx#L38-L45](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/components/Layout.jsx#L38-L45) | click links, watch Network |
+| S8-R2 | click on an item opens its detail page | [CarCard.jsx#L22-L28](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/components/CarCard.jsx#L22-L28), [CarDetailPage.jsx](https://github.com/fabix29/DealerAuto/blob/main/frontend/src/pages/CarDetailPage.jsx) | click a title |
+| S8-R3 | refresh on the detail URL works; missing id shows an error | [CarDetailPage.jsx#L8-L34](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/pages/CarDetailPage.jsx#L8-L34), [CarDetailPage.jsx#L44-L55](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/pages/CarDetailPage.jsx#L44-L55) | refresh /cars/1, open /cars/999 |
+| S8-R4 | unknown URL shows the app 404 page | [App.jsx#L16](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/App.jsx#L16) (path="*"), [NotFoundPage.jsx](https://github.com/fabix29/DealerAuto/blob/main/frontend/src/pages/NotFoundPage.jsx) | open /something |
+| S8-R5 | each component has its .module.css; index.css only shared styles | [src/components](https://github.com/fabix29/DealerAuto/tree/main/frontend/src/components), [src/pages](https://github.com/fabix29/DealerAuto/tree/main/frontend/src/pages), [index.css](https://github.com/fabix29/DealerAuto/blob/main/frontend/src/index.css) | read |
+| S8-R6 | data-testid attributes from tables 7.3 and 8.2; detail route /<resource>/:id | [Layout.jsx#L38](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/components/Layout.jsx#L38), [CarCard.jsx#L10-L40](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/components/CarCard.jsx#L10-L40), [CarDetailPage.jsx#L58-L62](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/pages/CarDetailPage.jsx#L58-L62), [NotFoundPage.jsx#L5](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/pages/NotFoundPage.jsx#L5) | querySelector in the console |
+| S8-R7 | README Stage 8 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-08.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-08.md) | read |
+| S8-R8 | commit "Stage 8" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
