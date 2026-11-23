@@ -307,3 +307,42 @@ Details per stage: see the ai-log/ folder.
 | S8-R6 | data-testid attributes from tables 7.3 and 8.2; detail route /<resource>/:id | [Layout.jsx#L38](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/components/Layout.jsx#L38), [CarCard.jsx#L10-L40](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/components/CarCard.jsx#L10-L40), [CarDetailPage.jsx#L58-L62](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/pages/CarDetailPage.jsx#L58-L62), [NotFoundPage.jsx#L5](https://github.com/fabix29/DealerAuto/blob/2b14dcf72a58f7652ad59096aeef698ec6c5fff5/frontend/src/pages/NotFoundPage.jsx#L5) | querySelector in the console |
 | S8-R7 | README Stage 8 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-08.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-08.md) | read |
 | S8-R8 | commit "Stage 8" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
+
+## Stage 9: own backend
+json-server is gone. The API is an Express server in `backend/`, with REST
+routes, server side validation and CORS. Data is still kept in memory and
+resets on restart.
+ 
+Routes: `GET /cars`, `GET /cars/:id`, `POST /cars`, `PATCH /cars/:id`, `DELETE /cars/:id`
+and `GET /health`. Errors have the form `{ "error": "..." }`. Quick check with curl (Git Bash):
+```
+curl -s -w ' -> %{http_code}\n' http://localhost:3001/cars
+curl -s -w ' -> %{http_code}\n' -X POST http://localhost:3001/cars -H "Content-Type: application/json" -d '{"title":"From curl","fuel":"diesel"}'
+curl -s -w ' -> %{http_code}\n' -X POST http://localhost:3001/cars -H "Content-Type: application/json" -d '{"title":""}'
+curl -s -w ' -> %{http_code}\n' http://localhost:3001/cars/999
+curl -s -w ' -> %{http_code}\n' -X DELETE http://localhost:3001/cars/6
+```
+## How to run
+```
+cd backend && npm install && npm run dev    # terminal 1, port 3001
+cd frontend && npm install && npm run dev   # terminal 2, port 5173
+```
+Copy `backend/.env.example` to `backend/.env` if you want other values for the port or for CORS.
+## AI usage
+| Tool | Used for |
+| -------------- | ----------------------------------------- |
+| Claude | Generating initial README structure; drafting the HTML/CSS (stage 1), the JavaScript functions (stage 2) and the React files (stages 3 to 8), the Express backend (stage 9). |
+ 
+Details per stage: see the ai-log/ folder.
+ 
+## Status
+- [x] Stage 1: static mockup
+- [x] Stage 2: data logic in JavaScript
+- [x] Stage 3: Vite and React project
+- [x] Stage 4: components rendered from data
+- [x] Stage 5: local state and events
+- [x] Stage 6: data from a mock API
+- [x] Stage 7: form and validation
+- [x] Stage 8: routing and detail page
+- [x] Stage 9: own backend with Express
+- [ ] Stage 10: MariaDB and full CRUD

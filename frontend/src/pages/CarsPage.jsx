@@ -20,7 +20,7 @@ export default function CarsPage() {
       } catch (err) {
         if (!ignore) {
           setError(
-            `Could not load the data: ${err.message}. Is npm run api running?`
+            `Could not load the data: ${err.message}. Is the backend running?`
           );
         }
       } finally {
