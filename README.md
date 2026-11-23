@@ -346,3 +346,15 @@ Details per stage: see the ai-log/ folder.
 - [x] Stage 8: routing and detail page
 - [x] Stage 9: own backend with Express
 - [ ] Stage 10: MariaDB and full CRUD
+
+## Verification table: Stage 9
+
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S9-R1 | npm run dev in backend/ starts the API on 3001 | [backend/package.json](https://github.com/fabix29/DealerAuto/blob/main/backend/package.json), [server.js](https://github.com/fabix29/DealerAuto/blob/main/backend/src/server.js), [app.js#L14-L16](https://github.com/fabix29/DealerAuto/blob/a0a9a37567622d983d01f74f72e68423b4771bfd/backend/src/app.js#L14-L16) (/health) | run it, open /health |
+| S9-R2 | all five routes answer with the right codes | [routes/cars.js#L30-L71](https://github.com/fabix29/DealerAuto/blob/a0a9a37567622d983d01f74f72e68423b4771bfd/backend/src/routes/cars.js#L30-L71) | curl commands from README |
+| S9-R3 | invalid data returns 400 with a clear message | [validation.js#L8-L51](https://github.com/fabix29/DealerAuto/blob/a0a9a37567622d983d01f74f72e68423b4771bfd/backend/src/validation.js#L8-L51), [routes/cars.js#L43-L47](https://github.com/fabix29/DealerAuto/blob/a0a9a37567622d983d01f74f72e68423b4771bfd/backend/src/routes/cars.js#L43-L47) | POST with empty title |
+| S9-R4 | React app works with json-server removed | [frontend/package.json](https://github.com/fabix29/DealerAuto/blob/main/frontend/package.json), [api.js#L10-L14](https://github.com/fabix29/DealerAuto/blob/a0a9a37567622d983d01f74f72e68423b4771bfd/frontend/src/api.js#L10-L14) | stop everything but backend |
+| S9-R5 | no CORS errors in the browser console | [app.js#L7-L9](https://github.com/fabix29/DealerAuto/blob/a0a9a37567622d983d01f74f72e68423b4771bfd/backend/src/app.js#L7-L9) (cors) | open console |
+| S9-R6 | README Stage 9 section + AI log | [README.md](https://github.com/fabix29/DealerAuto/blob/main/README.md), [ai-log/etapa-09.md](https://github.com/fabix29/DealerAuto/blob/main/ai-log/etapa-09.md) | read |
+| S9-R7 | commit "Stage 9" pushed | [commit](https://github.com/fabix29/DealerAuto/commits/main/) | commit history |
